@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-devel
+FROM wangqiang8511/cuda:9.0-devel
 
 RUN apt-get update -y && \
   apt-get install -y \
@@ -8,7 +8,7 @@ RUN apt-get update -y && \
 ## Install mkl
 RUN wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list && \
   apt-get update -y || echo "warning" && \
-  apt-get install intel-mkl -y --allow-unauthenticated && \
+  apt-get install intel-mkl-2018.1-038 -y --allow-unauthenticated && \
   rm -rf /var/lib/apt/lists/*
 
 ## Compile neon
